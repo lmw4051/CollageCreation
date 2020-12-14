@@ -32,7 +32,53 @@ class CollageCreationViewController: UIViewController {
     imageView.image = UIImage(named: "cat")
     imageView.contentMode = .scaleToFill
     imageView.isUserInteractionEnabled = true
-        
+    
+    let pinchGR = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch))
+    pinchGR.delegate = self
+    
+    let panGR = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+    panGR.delegate = self
+    
+    let rotateGR = UIRotationGestureRecognizer(target: self, action: #selector(handleRotation))
+    rotateGR.delegate = self
+
+    imageView.addGestureRecognizer(pinchGR)
+    imageView.addGestureRecognizer(panGR)
+    imageView.addGestureRecognizer(rotateGR)
+    
     view.addSubview(imageView)
+  }
+  
+  @objc func handlePinch(recognizer: UIPinchGestureRecognizer) {
+    guard let recognizerView = recognizer.view else {
+      return
+    }
+    let scale = recognizer.scale
+    recognizerView.transform = recognizerView.transform.scaledBy(x: scale, y: scale)
+    recognizer.scale = 1
+  }
+  
+  @objc func handlePan(recognizer: UIPanGestureRecognizer) {
+    guard let recognizerView = recognizer.view else {
+      return
+    }
+    let translation = recognizer.translation(in: self.view)
+    recognizerView.center.x += translation.x
+    recognizerView.center.y += translation.y
+    recognizer.setTranslation(.zero, in: view)
+  }
+  
+  @objc func handleRotation(recognizer: UIRotationGestureRecognizer) {
+    guard let recognizerView = recognizer.view else {
+      return
+    }
+    recognizerView.transform = recognizerView.transform.rotated(by: recognizer.rotation)
+    recognizer.rotation = 0
+  }
+}
+
+extension CollageCreationViewController: UIGestureRecognizerDelegate {
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    return true
   }
 }
