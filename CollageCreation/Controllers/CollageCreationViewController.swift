@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CollageCreationViewController.swift
 //  CollageCreation
 //
 //  Created by David on 2020/12/14.
@@ -8,13 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class CollageCreationViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    view.backgroundColor = .white
   }
-
-
 }
-

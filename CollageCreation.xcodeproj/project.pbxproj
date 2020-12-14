@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		54F25451258798B300A78A4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F25450258798B300A78A4D /* AppDelegate.swift */; };
 		54F25453258798B300A78A4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F25452258798B300A78A4D /* SceneDelegate.swift */; };
-		54F25455258798B300A78A4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F25454258798B300A78A4D /* ViewController.swift */; };
 		54F25458258798B300A78A4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54F25456258798B300A78A4D /* Main.storyboard */; };
 		54F2545A258798B500A78A4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54F25459258798B500A78A4D /* Assets.xcassets */; };
 		54F2545D258798B500A78A4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54F2545B258798B500A78A4D /* LaunchScreen.storyboard */; };
+		54F254662587990800A78A4D /* CollageCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F254652587990800A78A4D /* CollageCreationViewController.swift */; };
+		54F25469258799C200A78A4D /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F25468258799C200A78A4D /* UIView+Layout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		54F2544D258798B300A78A4D /* CollageCreation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollageCreation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54F25450258798B300A78A4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54F25452258798B300A78A4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		54F25454258798B300A78A4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		54F25457258798B300A78A4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		54F25459258798B500A78A4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54F2545C258798B500A78A4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54F2545E258798B500A78A4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54F254652587990800A78A4D /* CollageCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageCreationViewController.swift; sourceTree = "<group>"; };
+		54F25468258799C200A78A4D /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,32 @@
 		54F2544F258798B300A78A4D /* CollageCreation */ = {
 			isa = PBXGroup;
 			children = (
+				54F254672587998900A78A4D /* Helpers */,
+				54F25464258798E500A78A4D /* Controllers */,
 				54F25450258798B300A78A4D /* AppDelegate.swift */,
 				54F25452258798B300A78A4D /* SceneDelegate.swift */,
-				54F25454258798B300A78A4D /* ViewController.swift */,
 				54F25456258798B300A78A4D /* Main.storyboard */,
 				54F25459258798B500A78A4D /* Assets.xcassets */,
 				54F2545B258798B500A78A4D /* LaunchScreen.storyboard */,
 				54F2545E258798B500A78A4D /* Info.plist */,
 			);
 			path = CollageCreation;
+			sourceTree = "<group>";
+		};
+		54F25464258798E500A78A4D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				54F254652587990800A78A4D /* CollageCreationViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		54F254672587998900A78A4D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				54F25468258799C200A78A4D /* UIView+Layout.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +157,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54F25455258798B300A78A4D /* ViewController.swift in Sources */,
+				54F25469258799C200A78A4D /* UIView+Layout.swift in Sources */,
 				54F25451258798B300A78A4D /* AppDelegate.swift in Sources */,
+				54F254662587990800A78A4D /* CollageCreationViewController.swift in Sources */,
 				54F25453258798B300A78A4D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,7 +305,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 36872U436D;
+				DEVELOPMENT_TEAM = RNX3GY6LZ6;
 				INFOPLIST_FILE = CollageCreation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -303,7 +323,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 36872U436D;
+				DEVELOPMENT_TEAM = RNX3GY6LZ6;
 				INFOPLIST_FILE = CollageCreation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
