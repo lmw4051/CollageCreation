@@ -27,6 +27,11 @@ class CollageCreationViewController: UIViewController {
   @objc func createCollages() {
     let collageView = CollageView(frame: CGRect(x: 100, y: 100, width: 200, height: 200))
     
+    addGestures(view: collageView)
+    view.addSubview(collageView)
+  }
+  
+  func addGestures(view: UIView) {
     let pinchGR = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch))
     pinchGR.delegate = self
     
@@ -38,11 +43,10 @@ class CollageCreationViewController: UIViewController {
     
     let tapGR = UITapGestureRecognizer(target: self, action: #selector(handleTap))
 
-    collageView.addGestureRecognizer(pinchGR)
-    collageView.addGestureRecognizer(panGR)
-    collageView.addGestureRecognizer(rotateGR)
-    collageView.addGestureRecognizer(tapGR)
-    view.addSubview(collageView)
+    view.addGestureRecognizer(pinchGR)
+    view.addGestureRecognizer(panGR)
+    view.addGestureRecognizer(rotateGR)
+    view.addGestureRecognizer(tapGR)
   }
   
   @objc func handlePinch(recognizer: UIPinchGestureRecognizer) {
@@ -73,15 +77,15 @@ class CollageCreationViewController: UIViewController {
   }
   
   @objc func handleTap(recognizer: UITapGestureRecognizer) {
-    catPlayer.play()
-    
-    guard let recognizerView = recognizer.view else {
-      return
-    }
-    
-    UIView.animate(withDuration: catPlayer.duration) {
-      recognizerView.transform = recognizerView.transform.rotated(by: CGFloat(Double.pi))
-    }
+    if let recognizerView = recognizer.view {
+      if recognizerView is UIImageView {
+        catPlayer.play()
+        
+        UIView.animate(withDuration: catPlayer.duration) {
+          recognizerView.transform = recognizerView.transform.rotated(by: CGFloat(Double.pi))
+        }
+      }
+    }        
   }
 }
 
