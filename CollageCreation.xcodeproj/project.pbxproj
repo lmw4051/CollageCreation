@@ -17,6 +17,10 @@
 		54F2546F2587A60A00A78A4D /* Cat-noise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 54F2546E2587A60A00A78A4D /* Cat-noise.mp3 */; };
 		54F254752587AC2E00A78A4D /* CollageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F254742587AC2E00A78A4D /* CollageView.swift */; };
 		54F254DB25889F6F00A78A4D /* CreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F254DA25889F6F00A78A4D /* CreateButton.swift */; };
+		54F255312589036D00A78A4D /* Collages.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 54F2552F2589036D00A78A4D /* Collages.xcdatamodeld */; };
+		54F2554725892CD100A78A4D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F2554625892CD100A78A4D /* CoreDataStack.swift */; };
+		54F25552258941BA00A78A4D /* Collage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F25550258941BA00A78A4D /* Collage+CoreDataClass.swift */; };
+		54F25553258941BA00A78A4D /* Collage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F25551258941BA00A78A4D /* Collage+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		54F2546E2587A60A00A78A4D /* Cat-noise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Cat-noise.mp3"; sourceTree = "<group>"; };
 		54F254742587AC2E00A78A4D /* CollageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageView.swift; sourceTree = "<group>"; };
 		54F254DA25889F6F00A78A4D /* CreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateButton.swift; sourceTree = "<group>"; };
+		54F255302589036D00A78A4D /* Collages.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Collages.xcdatamodel; sourceTree = "<group>"; };
+		54F2554625892CD100A78A4D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		54F25550258941BA00A78A4D /* Collage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		54F25551258941BA00A78A4D /* Collage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,16 +72,19 @@
 		54F2544F258798B300A78A4D /* CollageCreation */ = {
 			isa = PBXGroup;
 			children = (
+				54F2553425891D9E00A78A4D /* Resources */,
+				54F2553325891CDF00A78A4D /* Models */,
 				54F254732587AC1D00A78A4D /* Views */,
 				54F254672587998900A78A4D /* Helpers */,
 				54F25464258798E500A78A4D /* Controllers */,
 				54F25450258798B300A78A4D /* AppDelegate.swift */,
 				54F25452258798B300A78A4D /* SceneDelegate.swift */,
+				54F2554625892CD100A78A4D /* CoreDataStack.swift */,
 				54F25456258798B300A78A4D /* Main.storyboard */,
-				54F2546E2587A60A00A78A4D /* Cat-noise.mp3 */,
 				54F25459258798B500A78A4D /* Assets.xcassets */,
 				54F2545B258798B500A78A4D /* LaunchScreen.storyboard */,
 				54F2545E258798B500A78A4D /* Info.plist */,
+				54F2552F2589036D00A78A4D /* Collages.xcdatamodeld */,
 			);
 			path = CollageCreation;
 			sourceTree = "<group>";
@@ -101,6 +112,23 @@
 				54F254DA25889F6F00A78A4D /* CreateButton.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		54F2553325891CDF00A78A4D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				54F25550258941BA00A78A4D /* Collage+CoreDataClass.swift */,
+				54F25551258941BA00A78A4D /* Collage+CoreDataProperties.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		54F2553425891D9E00A78A4D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				54F2546E2587A60A00A78A4D /* Cat-noise.mp3 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,10 +205,14 @@
 			files = (
 				54F25469258799C200A78A4D /* UIView+Layout.swift in Sources */,
 				54F254DB25889F6F00A78A4D /* CreateButton.swift in Sources */,
+				54F25552258941BA00A78A4D /* Collage+CoreDataClass.swift in Sources */,
 				54F25451258798B300A78A4D /* AppDelegate.swift in Sources */,
+				54F2554725892CD100A78A4D /* CoreDataStack.swift in Sources */,
 				54F254662587990800A78A4D /* CollageCreationViewController.swift in Sources */,
 				54F254752587AC2E00A78A4D /* CollageView.swift in Sources */,
 				54F25453258798B300A78A4D /* SceneDelegate.swift in Sources */,
+				54F25553258941BA00A78A4D /* Collage+CoreDataProperties.swift in Sources */,
+				54F255312589036D00A78A4D /* Collages.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +410,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		54F2552F2589036D00A78A4D /* Collages.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				54F255302589036D00A78A4D /* Collages.xcdatamodel */,
+			);
+			currentVersion = 54F255302589036D00A78A4D /* Collages.xcdatamodel */;
+			path = Collages.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 54F25445258798B300A78A4D /* Project object */;
 }

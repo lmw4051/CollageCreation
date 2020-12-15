@@ -8,27 +8,74 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class CollageCreationViewController: UIViewController {
-  
+  // MARK: - Instance Properties
   let catPlayer = AVAudioPlayer(fileName: "Cat-noise")
+  var collages: [Collage] = []
   
+  let modelName = "Collages"
+  let entityName = "Collage"
+  lazy var coreDataStack = CoreDataStack(modelName: modelName)
+     
+  // MARK: - View Life Cycles
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    loadCollageViewData()
+    configureUI()
+  }
+  
+  // MARK: - Helper Methods
+  func configureUI() {
     view.backgroundColor = .white
-        
+    
     let createButton = CreateButton(type: .system)
     view.addSubview(createButton)
     createButton.centerXInSuperview()
     createButton.anchor(top: nil, leading: nil, bottom: view.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 0, bottom: 32, right: 0))
     createButton.addTarget(self, action: #selector(createCollages), for: .touchUpInside)
+        
+    loadExistingCollageViews()
   }
   
-  @objc func createCollages() {
-    let collageView = CollageView(frame: CGRect(x: 100, y: 100, width: 200, height: 200))
+  func loadExistingCollageViews() {
+    for i in collages {
+      guard
+        let imageData = i.imageData as Data?,
+        let imageRect = i.imageRect as String?,
+        let identifier = i.id else {
+          return
+      }
+      let rect = NSCoder.cgRect(for: imageRect)
+      let collageView = CollageView(frame: rect)
+      collageView.image = UIImage(data: imageData)
+      collageView.accessibilityIdentifier = identifier
+      addGestures(view: collageView)
+      view.addSubview(collageView)
+    }
+  }
+  
+  func loadCollageViewData() {
+    let collageFetch: NSFetchRequest<Collage> = Collage.fetchRequest()
+    collageFetch.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
     
-    addGestures(view: collageView)
-    view.addSubview(collageView)
+    do {
+      let results = try coreDataStack.managedContext.fetch(collageFetch)
+      collages = results
+    } catch let error as NSError {
+      print("Fetch error: \(error) description: \(error.userInfo)")
+    }
+  }
+  
+  func saveCollageViewData(_ collageView: CollageView) {
+    let collage = NSEntityDescription.insertNewObject(forEntityName: entityName, into: coreDataStack.managedContext) as! Collage
+    collage.creationDate = Date()
+    collage.imageRect = NSCoder.string(for: collageView.frame)
+    collage.imageData = collageView.image?.pngData()
+    collage.id = collageView.accessibilityIdentifier ?? ""
+    coreDataStack.saveContext()
   }
   
   func addGestures(view: UIView) {
@@ -49,6 +96,17 @@ class CollageCreationViewController: UIViewController {
     view.addGestureRecognizer(tapGR)
   }
   
+  // MARK: - Selector Methods
+  @objc func createCollages() {
+    let collageView = CollageView(frame: CGRect(x: 100, y: 100, width: 200, height: 200))
+    collageView.image = UIImage(named: "cat")
+    collageView.accessibilityIdentifier = ProcessInfo().globallyUniqueString
+    addGestures(view: collageView)
+    view.addSubview(collageView)
+    
+    saveCollageViewData(collageView)
+  }
+  
   @objc func handlePinch(recognizer: UIPinchGestureRecognizer) {
     guard let recognizerView = recognizer.view else {
       return
@@ -62,10 +120,30 @@ class CollageCreationViewController: UIViewController {
     guard let recognizerView = recognizer.view else {
       return
     }
+    
     let translation = recognizer.translation(in: self.view)
     recognizerView.center.x += translation.x
     recognizerView.center.y += translation.y
     recognizer.setTranslation(.zero, in: view)
+    
+    if recognizer.state == .ended {
+      print("recognizer.state == .ended")
+      
+      guard let id = recognizerView.accessibilityIdentifier else { return }
+      
+      let collageFetch: NSFetchRequest<Collage> = Collage.fetchRequest()
+      let predicate = NSPredicate(format: "id = %@", id)
+      collageFetch.predicate = predicate
+      
+      do {
+        let result = try coreDataStack.managedContext.fetch(collageFetch)
+        print(result.count)
+        result.first?.imageRect = NSCoder.string(for: recognizerView.frame)
+        coreDataStack.saveContext()
+      } catch let error as NSError {
+        print("Fetch error: \(error) description: \(error.userInfo)")
+      }
+    }
   }
   
   @objc func handleRotation(recognizer: UIRotationGestureRecognizer) {
@@ -89,12 +167,14 @@ class CollageCreationViewController: UIViewController {
   }
 }
 
+// MARK: - UIGestureRecognizerDelegate Methods
 extension CollageCreationViewController: UIGestureRecognizerDelegate {
   func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
     return true
   }
 }
 
+// MARK: - AVAudioPlayer
 extension AVAudioPlayer {
   convenience init(fileName: String) {
     let url = Bundle.main.url(forResource: fileName, withExtension: "mp3")!

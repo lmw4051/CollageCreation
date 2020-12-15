@@ -10,8 +10,7 @@ import UIKit
 
 class CollageView: UIImageView {
   override init(frame: CGRect) {
-    super.init(frame: frame)
-    image = UIImage(named: "cat")
+    super.init(frame: frame)    
     contentMode = .scaleToFill
     isUserInteractionEnabled = true
   }
