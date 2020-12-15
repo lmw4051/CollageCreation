@@ -4,3 +4,5 @@ Features:
 2. Position/Width/Height data can be saved for loading data into app
 3. Tap cat ImageView will rotate and play cat sound
 4. Click "Remove All" button can remove all the collage views and storage
+
+![image](https://github.com/lmw4051/CollageCreation/blob/master/CollageCreation.gif)
