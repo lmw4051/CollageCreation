@@ -8,10 +8,9 @@
 
 import UIKit
 
-class CreateButton: UIButton {
+class CustomButton: UIButton {
   override init(frame: CGRect) {
-    super.init(frame: frame)
-    setImage(#imageLiteral(resourceName: "CreateButton"), for: .normal)
+    super.init(frame: frame)    
     constrainWidth(constant: 100)
     constrainHeight(constant: 100)
   }

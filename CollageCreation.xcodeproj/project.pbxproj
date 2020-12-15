@@ -16,11 +16,11 @@
 		54F25469258799C200A78A4D /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F25468258799C200A78A4D /* UIView+Layout.swift */; };
 		54F2546F2587A60A00A78A4D /* Cat-noise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 54F2546E2587A60A00A78A4D /* Cat-noise.mp3 */; };
 		54F254752587AC2E00A78A4D /* CollageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F254742587AC2E00A78A4D /* CollageView.swift */; };
-		54F254DB25889F6F00A78A4D /* CreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F254DA25889F6F00A78A4D /* CreateButton.swift */; };
+		54F254DB25889F6F00A78A4D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F254DA25889F6F00A78A4D /* CustomButton.swift */; };
 		54F255312589036D00A78A4D /* Collages.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 54F2552F2589036D00A78A4D /* Collages.xcdatamodeld */; };
 		54F2554725892CD100A78A4D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F2554625892CD100A78A4D /* CoreDataStack.swift */; };
-		54F25552258941BA00A78A4D /* Collage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F25550258941BA00A78A4D /* Collage+CoreDataClass.swift */; };
-		54F25553258941BA00A78A4D /* Collage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F25551258941BA00A78A4D /* Collage+CoreDataProperties.swift */; };
+		54F2557A2589737E00A78A4D /* Collage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F255782589737E00A78A4D /* Collage+CoreDataClass.swift */; };
+		54F2557B2589737E00A78A4D /* Collage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F255792589737E00A78A4D /* Collage+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,11 +35,11 @@
 		54F25468258799C200A78A4D /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		54F2546E2587A60A00A78A4D /* Cat-noise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Cat-noise.mp3"; sourceTree = "<group>"; };
 		54F254742587AC2E00A78A4D /* CollageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageView.swift; sourceTree = "<group>"; };
-		54F254DA25889F6F00A78A4D /* CreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateButton.swift; sourceTree = "<group>"; };
+		54F254DA25889F6F00A78A4D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		54F255302589036D00A78A4D /* Collages.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Collages.xcdatamodel; sourceTree = "<group>"; };
 		54F2554625892CD100A78A4D /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		54F25550258941BA00A78A4D /* Collage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collage+CoreDataClass.swift"; sourceTree = "<group>"; };
-		54F25551258941BA00A78A4D /* Collage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		54F255782589737E00A78A4D /* Collage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		54F255792589737E00A78A4D /* Collage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				54F254742587AC2E00A78A4D /* CollageView.swift */,
-				54F254DA25889F6F00A78A4D /* CreateButton.swift */,
+				54F254DA25889F6F00A78A4D /* CustomButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -117,8 +117,8 @@
 		54F2553325891CDF00A78A4D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				54F25550258941BA00A78A4D /* Collage+CoreDataClass.swift */,
-				54F25551258941BA00A78A4D /* Collage+CoreDataProperties.swift */,
+				54F255782589737E00A78A4D /* Collage+CoreDataClass.swift */,
+				54F255792589737E00A78A4D /* Collage+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,14 +204,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				54F25469258799C200A78A4D /* UIView+Layout.swift in Sources */,
-				54F254DB25889F6F00A78A4D /* CreateButton.swift in Sources */,
-				54F25552258941BA00A78A4D /* Collage+CoreDataClass.swift in Sources */,
+				54F254DB25889F6F00A78A4D /* CustomButton.swift in Sources */,
+				54F2557A2589737E00A78A4D /* Collage+CoreDataClass.swift in Sources */,
 				54F25451258798B300A78A4D /* AppDelegate.swift in Sources */,
 				54F2554725892CD100A78A4D /* CoreDataStack.swift in Sources */,
 				54F254662587990800A78A4D /* CollageCreationViewController.swift in Sources */,
 				54F254752587AC2E00A78A4D /* CollageView.swift in Sources */,
 				54F25453258798B300A78A4D /* SceneDelegate.swift in Sources */,
-				54F25553258941BA00A78A4D /* Collage+CoreDataProperties.swift in Sources */,
+				54F2557B2589737E00A78A4D /* Collage+CoreDataProperties.swift in Sources */,
 				54F255312589036D00A78A4D /* Collages.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,12 +31,19 @@ class CollageCreationViewController: UIViewController {
   func configureUI() {
     view.backgroundColor = .white
     
-    let createButton = CreateButton(type: .system)
+    let createButton = CustomButton(type: .system)
+    createButton.setImage(#imageLiteral(resourceName: "CreateButton"), for: .normal)
     view.addSubview(createButton)
     createButton.centerXInSuperview()
     createButton.anchor(top: nil, leading: nil, bottom: view.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 0, bottom: 32, right: 0))
     createButton.addTarget(self, action: #selector(createCollages), for: .touchUpInside)
         
+    let eraserButton = CustomButton(type: .system)
+    eraserButton.setTitle("Rmove All", for: .normal)        
+    view.addSubview(eraserButton)
+    eraserButton.anchor(top: nil, leading: nil, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 32, right: 16))
+    eraserButton.addTarget(self, action: #selector(removeAllViews), for: .touchUpInside)
+    
     loadExistingCollageViews()
   }
   
@@ -105,6 +112,23 @@ class CollageCreationViewController: UIViewController {
     view.addSubview(collageView)
     
     saveCollageViewData(collageView)
+  }
+  
+  @objc func removeAllViews() {
+    for i in view.subviews {
+      if i is CollageView {
+        i.removeFromSuperview()
+      }
+    }
+    
+    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Collage")
+    let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+    
+    do {
+      try coreDataStack.managedContext.execute(batchDeleteRequest)
+    } catch let error as NSError {
+      print("Fetch error: \(error) description: \(error.userInfo)")
+    }
   }
   
   @objc func handlePinch(recognizer: UIPinchGestureRecognizer) {

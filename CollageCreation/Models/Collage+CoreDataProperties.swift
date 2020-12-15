@@ -10,6 +10,7 @@
 import Foundation
 import CoreData
 
+
 extension Collage {
   
   @nonobjc public class func fetchRequest() -> NSFetchRequest<Collage> {
@@ -17,8 +18,7 @@ extension Collage {
   }
   
   @NSManaged public var creationDate: Date?
+  @NSManaged public var id: String?
   @NSManaged public var imageData: Data?
   @NSManaged public var imageRect: String?
-  @NSManaged public var id: String?
-  
 }
