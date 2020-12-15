@@ -1,4 +1,5 @@
 This is a sample app for creating collage view with cat image.
+
 Features:
 1. Users can Pinch/Rotate/Move the image view
 2. Position/Width/Height data can be saved for loading data into app
